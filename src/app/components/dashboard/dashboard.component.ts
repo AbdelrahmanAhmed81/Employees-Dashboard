@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit {
     return employees.map((employee) => {
       let minutes = (new Date(employee.EndTimeUtc).getTime() - new Date(employee.StarTimeUtc).getTime()) / 1000 / 60;
       return {
-        Name: employee.EmployeeName,
+        Name: employee.EmployeeName ?? 'unknown',
         MinutesWorked: minutes > 0 ? minutes : 0
       }
     });
