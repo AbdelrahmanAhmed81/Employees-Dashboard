@@ -17,7 +17,6 @@ export class EmployeeService {
   }
 
   private handleError(errorResponse: HttpErrorResponse) {
-    // console.log(errorResponse)
     let message: string = errorResponse.statusText;
     return throwError(() => message);
   }

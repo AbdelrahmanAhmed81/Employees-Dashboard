@@ -6,6 +6,23 @@
     <p class="alert alert-danger fw-bold text-center">{{ errorMessage }}</p>
   </div>
   <ng-template #dashboard>
-    <p>data arrived successfully</p>
+    <div class="container">
+      <table class="table table-bordered">
+        <thead>
+          <tr style="background-color: rgb(216, 216, 216)">
+            <th>Name</th>
+            <th class="text-center">Total Time In Month</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employeesSummary">
+            <td>{{ employee.Name }}</td>
+            <td class="text-center">
+              {{ employee.MinutesWorked | toHours }} hrs
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </ng-template>
 </ng-template>

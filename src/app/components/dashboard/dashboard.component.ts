@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Employee } from 'src/app/models/Employee';
 import { EmployeeData } from 'src/app/models/EmployeeData';
 import { EmployeeService } from 'src/app/services/employee.service';
@@ -9,8 +10,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  // employees: EmployeeData[] = [];
-  employeesResult: EmployeeData[] = [];
+  employeesSummary: EmployeeData[] = [];
   isLoading: boolean = false;
   errorMessage: string = '';
 
@@ -21,9 +21,8 @@ export class DashboardComponent implements OnInit {
     this.employeeService.getAll().subscribe({
       next: (data) => {
         let employees: EmployeeData[] = this.calculateEmployeesWorkedMinutes(data);
-        let result: EmployeeData[] = this.groupEmployeesByWorkedName(employees);
-        console.log(result)
-
+        let result: EmployeeData[] = this.groupEmployeesByName(employees);
+        this.employeesSummary = result.sort((a, b) => b.MinutesWorked - a.MinutesWorked);
         this.isLoading = false;
       },
       error: (error) => {
@@ -33,7 +32,7 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  private groupEmployeesByWorkedName(employees: EmployeeData[]): EmployeeData[] {
+  private groupEmployeesByName(employees: EmployeeData[]): EmployeeData[] {
     let result: EmployeeData[] = [];
     employees.reduce((res: any, value: any) => {
       if (!res[value.Name]) {
