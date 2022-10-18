@@ -1,1 +1,6 @@
-<p>dashboard works!</p>
+<div *ngIf="isLoading; else content">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<ng-template #content>
+  <p>data arrived successfully</p>
+</ng-template>
