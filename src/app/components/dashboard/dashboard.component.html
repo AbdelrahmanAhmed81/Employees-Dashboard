@@ -15,10 +15,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let employee of employeesSummary">
+          <tr
+            *ngFor="let employee of employeesSummary"
+            [style.background-color]="
+              employee.MinutesWorked < 6000 ? 'lightsalmon' : 'white'
+            "
+          >
             <td>{{ employee.Name }}</td>
             <td class="text-center">
-              {{ employee.MinutesWorked | toHours }} hrs
+              {{ employee.MinutesWorked | hours }} hrs
             </td>
           </tr>
         </tbody>
