@@ -28,6 +28,19 @@
           </tr>
         </tbody>
       </table>
+      <hr />
+      <div class="w-50 mx-auto">
+        <canvas
+          id="piechart"
+          baseChart
+          [datasets]="chartData"
+          [labels]="chartLabels"
+          [type]="chartType"
+          [options]="chartOptions"
+          [plugins]="chartPlugins"
+        >
+        </canvas>
+      </div>
     </div>
   </ng-template>
 </ng-template>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { ToHoursPipe } from './pipes/to-hours.pipe';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ToHoursPipe } from './pipes/to-hours.pipe';
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
