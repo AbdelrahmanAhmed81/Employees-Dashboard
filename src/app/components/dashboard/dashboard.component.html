@@ -29,18 +29,7 @@
         </tbody>
       </table>
       <hr />
-      <div class="w-50 mx-auto">
-        <canvas
-          id="piechart"
-          baseChart
-          [datasets]="chartData"
-          [labels]="chartLabels"
-          [type]="chartType"
-          [options]="chartOptions"
-          [plugins]="chartPlugins"
-        >
-        </canvas>
-      </div>
+      <app-chart [employees]="employeesSummary"></app-chart>
     </div>
   </ng-template>
 </ng-template>
