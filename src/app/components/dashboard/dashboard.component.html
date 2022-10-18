@@ -2,5 +2,10 @@
   <app-loading-spinner></app-loading-spinner>
 </div>
 <ng-template #content>
-  <p>data arrived successfully</p>
+  <div *ngIf="errorMessage; else dashboard">
+    <p class="alert alert-danger fw-bold text-center">{{ errorMessage }}</p>
+  </div>
+  <ng-template #dashboard>
+    <p>data arrived successfully</p>
+  </ng-template>
 </ng-template>

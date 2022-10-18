@@ -1,8 +1,8 @@
 export interface Employee {
     Id: string,
     EmployeeName: string,
-    StarTimeUtc: Date,
-    EndTimeUtc: Date,
+    StarTimeUtc: string,
+    EndTimeUtc: string,
     EntryNotes: string,
     DeletedOn: Date | null
 }
